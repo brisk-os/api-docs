@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: User, Project & Task API
+  title: BriskOS API
   version: 1.0.0
-  description: API for managing users, projects, and tasks
+  description: API for managing and integrating with different BriskOS services.
 
 servers:
   - url: https://api.example.com/v1
