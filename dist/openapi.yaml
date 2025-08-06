@@ -7,9 +7,17 @@ info:
 servers:
   - url: https://api.example.com/v1
 
+tags:
+  - name: users
+    description: Manage users.
+  - name: projects
+    description: Manage projects and tasks.
+
 paths:
   /users:
     get:
+      tags:
+        - users
       summary: List all users
       responses:
         "200":
@@ -21,6 +29,8 @@ paths:
                 items:
                   $ref: "#/components/schemas/User"
     post:
+      tags:
+        - users
       summary: Create a new user
       requestBody:
         required: true
@@ -38,6 +48,8 @@ paths:
 
   /users/{userId}:
     get:
+      tags:
+        - users
       summary: Get a user by ID
       parameters:
         - name: userId
@@ -56,6 +68,8 @@ paths:
           description: User not found
 
     put:
+      tags:
+        - users
       summary: Update a user
       parameters:
         - name: userId
@@ -78,6 +92,8 @@ paths:
                 $ref: "#/components/schemas/User"
 
     delete:
+      tags:
+        - users
       summary: Delete a user
       parameters:
         - name: userId
@@ -91,6 +107,8 @@ paths:
 
   /projects:
     get:
+      tags:
+        - projects
       summary: List all projects
       responses:
         "200":
@@ -102,6 +120,8 @@ paths:
                 items:
                   $ref: "#/components/schemas/Project"
     post:
+      tags:
+        - projects
       summary: Create a new project
       requestBody:
         required: true
@@ -119,6 +139,8 @@ paths:
 
   /projects/{projectId}:
     get:
+      tags:
+        - projects
       summary: Get a project by ID
       parameters:
         - name: projectId
@@ -137,6 +159,8 @@ paths:
           description: Project not found
 
     put:
+      tags:
+        - projects
       summary: Update a project
       parameters:
         - name: projectId
@@ -159,6 +183,8 @@ paths:
                 $ref: "#/components/schemas/Project"
 
     delete:
+      tags:
+        - projects
       summary: Delete a project
       parameters:
         - name: projectId
@@ -172,6 +198,8 @@ paths:
 
   /projects/{projectId}/tasks:
     get:
+      tags:
+        - projects
       summary: List tasks in a project
       parameters:
         - name: projectId
@@ -189,6 +217,8 @@ paths:
                 items:
                   $ref: "#/components/schemas/Task"
     post:
+      tags:
+        - projects
       summary: Create a task in a project
       parameters:
         - name: projectId
@@ -212,6 +242,8 @@ paths:
 
   /projects/{projectId}/tasks/{taskId}:
     get:
+      tags:
+        - projects
       summary: Get a task by ID
       parameters:
         - name: projectId
@@ -235,6 +267,8 @@ paths:
           description: Task not found
 
     put:
+      tags:
+        - projects
       summary: Update a task
       parameters:
         - name: projectId
@@ -262,6 +296,8 @@ paths:
                 $ref: "#/components/schemas/Task"
 
     delete:
+      tags:
+        - projects
       summary: Delete a task
       parameters:
         - name: projectId
